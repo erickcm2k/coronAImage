@@ -9,18 +9,12 @@ import {
   Spinner,
 } from "@chakra-ui/core";
 import Navbar from "../Navbar/Navbar";
-
+import Hero from "../Hero/Hero";
 const HomePage = () => {
-
-
-  
-
   return (
     <React.Fragment>
-      <Navbar></Navbar>
-      <Flex align="center" justify="center" height="100vh" direction="column">
-        <Spinner />
-      </Flex>
+        <Navbar />
+        <Hero />
     </React.Fragment>
   );
 };
