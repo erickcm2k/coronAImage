@@ -4,17 +4,16 @@ import {
   theme,
   ColorModeProvider,
   CSSReset,
-  useColorMode,
 } from "@chakra-ui/core";
-import "./Components/HomePage/HomePage";
-import HomePage from "./Components/HomePage/HomePage";
+import "./Components/Layout/Layout";
+import Layout from "./Components/Layout/Layout";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <CSSReset />
-        <HomePage />
+        <Layout />
       </ColorModeProvider>
     </ThemeProvider>
   );

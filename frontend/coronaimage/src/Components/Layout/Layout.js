@@ -1,20 +1,13 @@
 import React from "react";
-import {
-  Button,
-  Flex,
-  useToast,
-  useColorMode,
-  FormControl,
-  Input,
-  Spinner,
-} from "@chakra-ui/core";
 import Navbar from "../Navbar/Navbar";
 import Hero from "../Hero/Hero";
+import Classifier from "../Classifier/Classifier";
 const HomePage = () => {
   return (
     <React.Fragment>
-        <Navbar />
-        <Hero />
+      <Navbar />
+      {/* <Hero /> */}
+      <Classifier />
     </React.Fragment>
   );
 };
