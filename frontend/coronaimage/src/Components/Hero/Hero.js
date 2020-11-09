@@ -4,6 +4,7 @@ import logo from "../../assets/images/coronaimage-logo.png";
 import logoIpn from "../../assets/images/logo-ipn.webp";
 import logoLight from "../../assets/images/logo-light.png";
 import logoDark from "../../assets/images/logo-dark.png";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
@@ -38,14 +39,14 @@ const Hero = () => {
         </Box>
         <Box>
           <Image
-            src={colorMode === "light" ? logoDark : logoLight }
+            src={colorMode === "light" ? logoDark : logoLight}
             alt="logo"
           ></Image>
         </Box>
       </Flex>
       <Flex align="center" justify="center">
         <Button my="5" variantColor="green">
-          ¡Comenzar!
+          <Link to={{ pathname: "/analyse" }}>¡Comenzar!</Link>
         </Button>
       </Flex>
     </React.Fragment>

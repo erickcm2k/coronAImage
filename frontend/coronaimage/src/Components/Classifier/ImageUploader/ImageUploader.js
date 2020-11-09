@@ -66,7 +66,7 @@ class ImageUploader extends React.Component {
         <Flex direction="column" align="center" pt='6'>
           <Box
             textAlign="center"
-            bg="orange.400"
+            bg="white"
             rounded='lg'
             
             width={["80%", "80%", "80%", "50%"]}
@@ -76,7 +76,7 @@ class ImageUploader extends React.Component {
                 my={["2", "3", "4", "5"]}
                 fontSize={["xl", "2xl", "3xl", "4xl"]}
                 fontWeight="bold"
-                color='white'
+                color='black'
               >
                 Empieza a Analizar
               </Text>
@@ -90,7 +90,7 @@ class ImageUploader extends React.Component {
               <Button
                 my={["2", "3", "4", "5"]}
                 onClick={this.upload}
-                variantColor="blue"
+                variantColor="teal"
               >
                 Subir imagen
               </Button>
