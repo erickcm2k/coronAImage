@@ -6,8 +6,8 @@ const HomePage = () => {
   return (
     <React.Fragment>
       <Navbar />
-      {/* <Hero /> */}
-      <Classifier />
+      <Hero />
+      {/* <Classifier /> */}
     </React.Fragment>
   );
 };
