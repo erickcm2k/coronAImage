@@ -9,13 +9,15 @@ import {
   Text,
   useColorMode,
   useDisclosure,
-  Image
+  Image,
 } from "@chakra-ui/core";
 import logoLight from "../../assets/images/logo-light.png";
 import logoDark from "../../assets/images/logo-dark.png";
 import logoIpn from "../../assets/images/logo-ipn.webp";
 import iconDark from "../../assets/images/icon-dark.png";
 import iconLight from "../../assets/images/icon-light.png";
+import lightNotext from "../../assets/images/logo-light-notext.png";
+import darkNotext from "../../assets/images/logo-dark-notext.png";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,11 +33,15 @@ const Navbar = () => {
         margin="0 auto"
       >
         {/* <Text ml="10px" fontWeight="bold" fontSize="1.8rem">
-          CoronAImage
+          Coron<stroke style={{color: 'rgb(58,174,150)'}}>AI</stroke>mage
         </Text> */}
-        {/* <Image width='220px' src={colorMode === "light" ? logoDark : logoLight}/> */}
+        <Image
+          width={["150px", "200px", "220px", "220px"]}
+          src={colorMode === "light" ? lightNotext : darkNotext}
+        />
+        {/* <Image width='220px' src={colorMode === "light" ? logoDark : logoLight}/>  */}
         {/* <Image width='100px' src={colorMode === "light" ? iconDark : iconLight}/> */}
-        <Image width='80px' src={logoIpn}/>
+        {/* <Image width='80px' src={logoIpn}/> */}
         {/* 
         
         Display for desktop

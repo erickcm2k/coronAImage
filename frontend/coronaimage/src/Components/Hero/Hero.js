@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Flex, Text, Image, Button, useColorMode } from "@chakra-ui/core";
-import logo from "../../assets/images/coronaimage-logo.png";
 import logoIpn from "../../assets/images/logo-ipn.webp";
 import logoLight from "../../assets/images/logo-light.png";
 import logoDark from "../../assets/images/logo-dark.png";
@@ -45,9 +44,11 @@ const Hero = () => {
         </Box>
       </Flex>
       <Flex align="center" justify="center">
-        <Button my="5" variantColor="green">
-          <Link to={{ pathname: "/analyse" }}>¡Comenzar!</Link>
-        </Button>
+        <Link to={{ pathname: "/analyse" }}>
+          <Button my="5" variantColor="green">
+            ¡Comenzar!
+          </Button>
+        </Link>
       </Flex>
     </React.Fragment>
   );
