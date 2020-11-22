@@ -5,7 +5,7 @@ const Classifier = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <ImageUploader
-      bg={colorMode === "light" ? "blue.900" : "white"}
+      bg={colorMode === "light" ? "gray.800" : "white"}
       textColor={colorMode === "light" ? "white" : "black"}
     />
   );
