@@ -1,0 +1,10 @@
+.picture {
+  height: 15rem;
+  width: 15rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.3);
+  background-image: url("../../assets/images/ipn_white.png");
+  background-size: cover;
+  background-position: center center;
+}

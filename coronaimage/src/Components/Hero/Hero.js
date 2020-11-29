@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Flex, Text, Image, Button, useColorMode } from "@chakra-ui/core";
-import logoIpn from "../../assets/images/logo-ipn.webp";
 import logoLight from "../../assets/images/logo-light.png";
 import logoDark from "../../assets/images/logo-dark.png";
+import Description from "../Description/Description";
+import { Box, Flex, Text, Image, Button, useColorMode } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
+
 const Hero = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
@@ -14,7 +15,7 @@ const Hero = () => {
         align="center"
         textAlign="center"
       >
-        <Box order={["1", "1", "2", "2"]}>
+        <Box flex="50%" order={["1", "1", "1", "0"]}>
           <Text
             mx={["3", "4", "5", "5"]}
             my={["4", "4", "4", "5"]}
@@ -28,7 +29,7 @@ const Hero = () => {
           </Text>
           <Text
             mx={["5", "5", "5", "5"]}
-            order={["2", "2", "1", "1"]}
+            
             my={["4", "4", "4", "5"]}
             fontSize={["lg", "xl", "xl", "1.4rem"]}
           >
@@ -36,7 +37,7 @@ const Hero = () => {
             datos gratuitas y fáciles de usar, CoronAImage está aquí para ayudar
           </Text>
         </Box>
-        <Box>
+        <Box flex="50%">
           <Image
             src={colorMode === "light" ? logoDark : logoLight}
             alt="logo"
@@ -50,6 +51,7 @@ const Hero = () => {
           </Button>
         </Link>
       </Flex>
+      <Description />
     </React.Fragment>
   );
 };
