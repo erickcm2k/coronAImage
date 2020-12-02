@@ -22,7 +22,7 @@ const Description = () => {
             fontSize={["1.6rem", "2rem", "4xl", "2.5rem"]}
             color="teal.400"
           >
-            Viendo lo invisible, usando las técnicas de más modernas de
+            Viendo lo invisible, usando las técnicas más modernas de
             reconocimiento de imágenes
           </Text>
           <Text
