@@ -13,6 +13,7 @@ const Description = () => {
         direction={["column", "column", "column", "row"]}
         align="center"
         textAlign="center"
+        min-height="80vh"
       >
         <Box flex="50%" order={["1", "1", "1", "1"]}>
           <Text
@@ -31,11 +32,10 @@ const Description = () => {
             fontSize={["lg", "xl", "xl", "1.4rem"]}
             textAlign="justify"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis
-            elit cursus pulvinar id in ullamcorper rhoncus, augue. Lorem tellus
-            tincidunt risus cras id. Ultrices vel, adipiscing vulputate sed
-            consectetur turpis sed lacus elit. Leo amet amet, adipiscing purus
-            turpis ornare.
+            Gracias al uso de algoritmos de Machine Learning, CoronAImage
+            analizará radiografías de tórax y determinará si el paciente se
+            encuentra infectado o no, todo esto con un alto grado de precisión.
+            ¡Obtendrás resultados en cuestión de segundos!
           </Text>
         </Box>
         <Box flex="50%">
@@ -46,6 +46,7 @@ const Description = () => {
         direction={["column", "column", "column", "row"]}
         align="center"
         textAlign="center"
+        min-height="80vh"
       >
         <Box flex="50%" order={["1", "1", "1", "0"]}>
           <Text
@@ -63,11 +64,10 @@ const Description = () => {
             fontSize={["lg", "xl", "xl", "1.4rem"]}
             textAlign="justify"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis
-            elit cursus pulvinar id in ullamcorper rhoncus, augue. Lorem tellus
-            tincidunt risus cras id. Ultrices vel, adipiscing vulputate sed
-            consectetur turpis sed lacus elit. Leo amet amet, adipiscing purus
-            turpis ornare.
+            CoronAImage está diseñada para ser intuitiva y fácil de usar.
+            Sabemos lo molesto que es para algunas personas usar aplicaciones
+            con fondos blancos. Con el modo noche, la aplicación podrá ser usada
+            durante largos periodos de tiempo sin lastimar tus ojos.
           </Text>
         </Box>
         <Box flex="50%">
@@ -78,6 +78,7 @@ const Description = () => {
         direction={["column", "column", "column", "row"]}
         align="center"
         textAlign="center"
+        min-height="80vh"
       >
         <Box flex="50%" order={["1", "1", "1", "1"]}>
           <Text
@@ -95,11 +96,10 @@ const Description = () => {
             fontSize={["lg", "xl", "xl", "1.4rem"]}
             textAlign="justify"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis
-            elit cursus pulvinar id in ullamcorper rhoncus, augue. Lorem tellus
-            tincidunt risus cras id. Ultrices vel, adipiscing vulputate sed
-            consectetur turpis sed lacus elit. Leo amet amet, adipiscing purus
-            turpis ornare.
+            Una herramienta desarrollada por alumnos de la Escuela Superior de
+            Cómputo del Instituto Politécnico Nacional (ESCOM IPN), con el
+            objetivo de dar soluciones digitales para una problemática que
+            vivimos hoy en día.
           </Text>
         </Box>
         <Box flex="50%">

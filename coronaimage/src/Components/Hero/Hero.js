@@ -29,7 +29,6 @@ const Hero = () => {
           </Text>
           <Text
             mx={["5", "5", "5", "5"]}
-            
             my={["4", "4", "4", "5"]}
             fontSize={["lg", "xl", "xl", "1.4rem"]}
           >
