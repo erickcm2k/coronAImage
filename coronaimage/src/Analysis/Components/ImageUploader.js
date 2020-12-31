@@ -8,7 +8,7 @@ import {
   Image,
   Progress,
 } from "@chakra-ui/core";
-import AnalysisResults from "../../AnalysisResults/AnalysisResults";
+import AnalysisResults from "./AnalysisResults";
 import axios from "axios";
 
 const ImageUploader = (props) => {
@@ -18,40 +18,12 @@ const ImageUploader = (props) => {
   };
 
   const submitButton = useRef();
-  const [isEnabled, setEnabled] = useState(true);
-
-  const toggleSubmitButton = () => {
-    if (isEnabled) {
-      submitButton.current.setAttribute("disabled", "disabled");
-    } else {
-      submitButton.current.removeAttribute("disabled");
-    }
-    setEnabled(!isEnabled);
-  };
-
-  // Why this is not working???
-  // const toggleSubmitButton = () => {
-  //   if (isEnabled) {
-  //     submitButton.current.setAttribute("disabled", "disabled");
-  //   } else {
-  //     submitButton.current.removeAttribute("disabled");
-  //   }
-  //   setEnabled(!isEnabled);
-  // };
-
-  const disableButton = () => {
-    submitButton.current.setAttribute("disabled", "disabled");
-  };
-
-  const enableButton = () => {
-    submitButton.current.removeAttribute("disabled");
-  };
 
   const [filename, setFilename] = useState("");
   const [image, setImage] = useState();
   const [imageURL, setImageURL] = useState("");
   const [pictureInvalid, setPictureInvalid] = useState(false);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgess] = useState(0);
   const [analysisResult, setAnalysisResult] = useState({
     infected: "",
@@ -73,15 +45,17 @@ const ImageUploader = (props) => {
     if (e.target.files[0]) {
       const fName = e.target.files[0].name.toLowerCase();
       const fSize = Math.round(e.target.files[0].size / 1024);
+
+      // Picture is valid
       if (validateExtension(fName) && validateSize(fSize)) {
         setFilename(fName);
         setImage(e.target.files[0]);
         setImageURL(URL.createObjectURL(e.target.files[0]));
         setPictureInvalid(false);
-        console.log("Valid picture!");
+
         return true;
       } else {
-        console.log("Picture invalid");
+        // Picture is not valid
         setFilename(fName);
         setImage(null);
         setImageURL(null);
@@ -89,40 +63,35 @@ const ImageUploader = (props) => {
         return false;
       }
     } else {
-      console.log("Aborted selection");
-      // setFilename("");
-      // setImage(null);
-      // setImageURL(null);
-      // setPictureInvalid(false);
+      // Aborted selection
       return false;
     }
   };
 
-  const uploadToServer = () => {
-    disableButton();
-    setLoading(true);
+  const uploadToServer = async () => {
+    setIsLoading(true);
     const fd = new FormData();
-    const URL = "http://localhost:3000";
+    const serverURL = "http://192.168.0.2:3000";
 
     fd.append("image", image, "here the image name");
 
-    axios
-      .post(URL, fd, {
+    await axios
+      .post(serverURL, fd, {
         onUploadProgress: (progressEvent) => {
           let currentProgess = Math.round(
             (progressEvent.loaded / progressEvent.total) * 100
           );
           setUploadProgess(currentProgess);
-          console.log(currentProgess);
+          // console.log(currentProgess);
           if (currentProgess === 100) {
-            setLoading(false);
+            setIsLoading(false);
             setUploadProgess(0);
           }
         },
       })
       .then((res) => {
         console.log(res.data);
-        enableButton();
+        setIsLoading(false);
         setAnalysisResult({
           infected: res.data.acceptedImage,
           precision: res.data.precision,
@@ -131,8 +100,8 @@ const ImageUploader = (props) => {
       })
       .catch((error) => {
         console.log(error);
-        enableButton();
-        setLoading(false);
+        setIsLoading(false);
+        setIsLoading(false);
         setUploadProgess(0);
       });
   };
@@ -190,6 +159,7 @@ const ImageUploader = (props) => {
                 direction={["column", "column", "row", "row"]}
               >
                 <Button
+                  disabled={isLoading}
                   my={["2", "3", "4", "5"]}
                   onClick={clickHiddenUploadButton}
                   variantColor="teal"
@@ -199,6 +169,7 @@ const ImageUploader = (props) => {
                 </Button>
                 {imageURL && (
                   <Button
+                    disabled={isLoading}
                     ref={submitButton}
                     m={["2", "2", "4", "5"]}
                     variantColor="green"

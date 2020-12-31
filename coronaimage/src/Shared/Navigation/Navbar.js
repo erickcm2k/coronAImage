@@ -1,5 +1,5 @@
 import React from "react";
-import DrawerMenu from "./DrawerMenu/DrawerMenu";
+import DrawerMenu from "./DrawerMenu";
 
 import {
   Box,
@@ -9,7 +9,6 @@ import {
   Text,
   useColorMode,
   useDisclosure,
-  Image,
 } from "@chakra-ui/core";
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
   return (
     <Flex w="100%" h="75px" align="center" justify="space-between">
       <Text ml="10px" fontWeight="bold" fontSize="1.8rem">
-        Coron<stroke style={{ color: "rgb(58,174,150)" }}>AI</stroke>mage
+        Coron<strong style={{ color: "rgb(58,174,150)" }}>AI</strong>mage
       </Text>
       {/* <Image
         width={["150px", "200px", "220px", "220px"]}

@@ -1,5 +1,5 @@
 import React from "react";
-import ImageUploader from "./ImageUploader/ImageUploader";
+import ImageUploader from "./ImageUploader";
 import { useColorMode } from "@chakra-ui/core";
 const Classifier = () => {
   const { colorMode, toggleColorMode } = useColorMode();

@@ -1,7 +1,6 @@
 import React from "react";
-import logoLight from "../../assets/images/logo-light.png";
-import logoDark from "../../assets/images/logo-dark.png";
-import Description from "../Description/Description";
+import logoLight from "../../assets/images/logo-light-slogan.png";
+import logoDark from "../../assets/images/logo-dark-slogan.png";
 import { Box, Flex, Text, Image, Button, useColorMode } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
@@ -14,6 +13,7 @@ const Hero = () => {
         direction={["column", "column", "column", "row"]}
         align="center"
         textAlign="center"
+        minH="50vh"
       >
         <Box flex="50%" order={["1", "1", "1", "0"]}>
           <Text
@@ -44,13 +44,12 @@ const Hero = () => {
         </Box>
       </Flex>
       <Flex align="center" justify="center">
-        <Link to={{ pathname: "/analyse" }}>
+        <Link to={{ pathname: "/analysis" }}>
           <Button my="5" variantColor="green">
             ¡Comenzar!
           </Button>
         </Link>
       </Flex>
-      <Description />
     </React.Fragment>
   );
 };
