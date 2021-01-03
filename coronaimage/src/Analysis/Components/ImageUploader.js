@@ -91,18 +91,17 @@ const ImageUploader = (props) => {
       .then((res) => {
         // For real server
         setIsLoading(false);
-        // setAnalysisResult({
-        //   infected: res.data.predictions[0].label,
-        //   precision: res.data.predictions[0].score.toFixed(2),
-        //   hasResult: true,
-        // });
-
-        // For dummy server
         setAnalysisResult({
-          infected: res.data.label,
-          precision: res.data.score,
+          infected: res.data.predictions[0].label,
+          precision: res.data.predictions[0].score.toFixed(2),
           hasResult: true,
         });
+        // For dummy server
+        // setAnalysisResult({
+        //   infected: res.data.label,
+        //   precision: res.data.score,
+        //   hasResult: true,
+        // });
       })
       .catch((error) => {
         setError(true);
