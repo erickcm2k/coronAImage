@@ -66,8 +66,8 @@ const ImageUploader = (props) => {
     setError(false);
     setAnalysisResult({ hasResult: false });
     setIsLoading(true);
-    // const url = "http://34.68.115.100:5000/model/covid19/";
-    const url = "http://192.168.0.6:3000";
+    const url = "http://34.68.115.100:5000/model/covid19/";
+    // const url = "http://192.168.0.6:3000";
     // const headers = {
     //   "Content-Type": undefined,
     // };
@@ -96,6 +96,7 @@ const ImageUploader = (props) => {
           precision: res.data.predictions[0].score.toFixed(2),
           hasResult: true,
         });
+
         // For dummy server
         // setAnalysisResult({
         //   infected: res.data.label,

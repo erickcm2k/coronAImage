@@ -41,7 +41,7 @@ const AnalysisResults = (props) => {
             {props.precision > 0 && (
               <Text color="white">
                 Grado de infección:{" "}
-                <strong>{props.precision.toFixed(2)}%</strong>
+                <strong>{props.precision}%</strong>
               </Text>
             )}
           </>
