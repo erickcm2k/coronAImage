@@ -10,6 +10,7 @@ import {
   Flex,
   Link,
 } from "@chakra-ui/core";
+import userManual from "../../assets/pdf/Manual-de-uso-CoronAImage.pdf";
 import React from "react";
 const DrawerMenu = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -43,6 +44,7 @@ const DrawerMenu = (props) => {
               href="https://www.google.com.mx/"
               rightIcon="question"
               target="_blank"
+              onClick={() => window.open(userManual)}
             >
               Ayuda
             </Button>

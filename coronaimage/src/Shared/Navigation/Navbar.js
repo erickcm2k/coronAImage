@@ -10,7 +10,7 @@ import {
   useColorMode,
   useDisclosure,
 } from "@chakra-ui/core";
-
+import userManual from "../../assets/pdf/Manual-de-uso-CoronAImage.pdf";
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -40,7 +40,13 @@ const Navbar = () => {
           Acerca de
         </Link>
 
-        <Button ml="5" variantColor="teal" href="#about" rightIcon="question">
+        <Button
+          ml="5"
+          variantColor="teal"
+          href="#about"
+          rightIcon="question"
+          onClick={() => window.open(userManual)}
+        >
           Ayuda
         </Button>
         <Button

@@ -1,5 +1,13 @@
 import React, { useRef, useState } from "react";
-import { Box, Button, Flex, Text, Image, Progress } from "@chakra-ui/core";
+import {
+  Box,
+  Button,
+  Flex,
+  Text,
+  Image,
+  Progress,
+  Spinner,
+} from "@chakra-ui/core";
 import AnalysisResults from "./AnalysisResults";
 import axios from "axios";
 
@@ -16,6 +24,7 @@ const ImageUploader = (props) => {
   const [imageURL, setImageURL] = useState("");
   const [pictureInvalid, setPictureInvalid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [uploadProgress, setUploadProgess] = useState(0);
   const [analysisResult, setAnalysisResult] = useState({
     infected: "",
@@ -66,11 +75,10 @@ const ImageUploader = (props) => {
     setError(false);
     setAnalysisResult({ hasResult: false });
     setIsLoading(true);
+    // Google Cloud server
     const url = "http://34.68.115.100:5000/model/covid19/";
+    // Dummy server
     // const url = "http://192.168.0.6:3000";
-    // const headers = {
-    //   "Content-Type": undefined,
-    // };
 
     var myform = document.forms["myForm"];
     var formData = new FormData(myform);
@@ -84,20 +92,21 @@ const ImageUploader = (props) => {
           setUploadProgess(currentProgess);
           if (currentProgess === 100) {
             setIsLoading(false);
+            setIsAnalyzing(true);
             setUploadProgess(0);
           }
         },
       })
       .then((res) => {
         // For real server
-        setIsLoading(false);
+        setIsAnalyzing(true);
         setAnalysisResult({
           infected: res.data.predictions[0].label,
           precision: res.data.predictions[0].score.toFixed(2),
           hasResult: true,
         });
-
         // For dummy server
+        // setIsAnalyzing(true);
         // setAnalysisResult({
         //   infected: res.data.label,
         //   precision: res.data.score,
@@ -111,6 +120,7 @@ const ImageUploader = (props) => {
         setIsLoading(false);
         setUploadProgess(0);
       });
+    setIsAnalyzing(false);
     setIsLoading(false);
   };
 
@@ -203,13 +213,21 @@ const ImageUploader = (props) => {
                   )}
                 </Flex>
               </Flex>
-              {isLoading && imageURL && (
+              {isLoading && (
                 <Box>
                   <Text color={props.textColor}>
                     Cargando imagen. {uploadProgress}%
                   </Text>
 
                   <Progress hasStripe value={uploadProgress}></Progress>
+                </Box>
+              )}
+              {isAnalyzing && (
+                <Box>
+                  <Text color={props.textColor} pb="2">
+                    Analizando imagen...
+                  </Text>
+                  <Spinner color="blue.500"></Spinner>
                 </Box>
               )}
 
